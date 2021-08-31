@@ -1,7 +1,7 @@
 
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import rawData from './data.json';
+import data from './data.json';
 
 
 class Main extends React.Component {
@@ -11,14 +11,14 @@ class Main extends React.Component {
     return (
 
       <div className='main' >
-        {rawData.map((item) => {
+        {data.map((item) => {
 
           return (
             <div className='card' >
               <HornedBeast alt={item.keyword}
                 description={item.description}
                 title={item.title}
-                url={item.image_url} />
+                imageUrl={item.image_url} />
 
             </div>
 

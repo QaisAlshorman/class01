@@ -1,4 +1,3 @@
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
@@ -9,13 +8,13 @@ class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      numlikes: 0
+      numOfVotes: 0
     };
   }
 
   incrementNumberOFlikes = () => {
     this.setState({
-      numlikes: this.state.numlikes + 1
+      numOfVotes: this.state.numOfVotes + 1
     });
   }
 
@@ -25,22 +24,15 @@ class HornedBeast extends React.Component {
 
 
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" onClick={this.incrementNumberOFlikes} alt={this.props.alt} src={this.props.url} />
+          <Card.Img variant="top" onClick={this.incrementNumberOFlikes} alt={this.props.alt} src={this.props.imageUrl} />
           <Card.Body>
-            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Title> {this.props.title}</Card.Title>
             <Card.Text>   {this.props.description}   </Card.Text>
-            <Card.Text>   Number of likes 😸 {this.state.numlikes}  </Card.Text>
+            <Card.Text>   Number of likes ❤️ {this.state.numOfVotes}  </Card.Text>
 
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary">votes</Button>
           </Card.Body>
         </Card>
-
-
-
-
-
-
-
 
 
       </div>
