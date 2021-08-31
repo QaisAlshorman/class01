@@ -1,44 +1,59 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { Card, Button} from 'react-bootstrap';
+import CardColumns from 'react-bootstrap/CardColumns';
 
-class HornedBeast extends React.Component {
+
+
+
+class HornedBeasts extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      numOfVotes: 0
+      counter: 0
+
     };
   }
 
-  incrementNumberOFlikes = () => {
-    this.setState({
-      numOfVotes: this.state.numOfVotes + 1
-    });
+  favouriteCounter = () => {
+    this.setState(
+      {
+        counter: this.state.counter + 1
+      }
+    );
+  }
+
+  displayModal = () => {
+    this.props.passingDataTOModalfromMain();
+
   }
 
   render() {
     return (
-      <div className='card'>
+      <>
+
+        <CardColumns className={CardColumns}>
+          <Card style={{ width: '18rem' }} className="text-center" onClick={this.displayModal}>
+            <Card.Body>
+              <Card.Title>{this.props.title}</Card.Title>
+              <Card.Img onClick={this.favouriteCounter} src={this.props.imgSrc} />
+              <Card.Text>
+                {this.props.description}
+              </Card.Text>
+              <Card.Text>
+                Likes :{this.state.counter} ❤️
+              </Card.Text>
+              <Button onClick={this.prop3Function} variant="primary">Like 👍</Button>
+
+            </Card.Body>
+          </Card>
+        </CardColumns >
 
 
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" onClick={this.incrementNumberOFlikes} alt={this.props.alt} src={this.props.imageUrl} />
-          <Card.Body>
-            <Card.Title> {this.props.title}</Card.Title>
-            <Card.Text>   {this.props.description}   </Card.Text>
-            <Card.Text>   Number of likes ❤️ {this.state.numOfVotes}  </Card.Text>
 
-            <Button variant="primary">votes</Button>
-          </Card.Body>
-        </Card>
-
-
-      </div>
+      </>
     );
   }
 }
 
-
-export default HornedBeast;
+export default HornedBeasts;
