@@ -1,11 +1,13 @@
 import React from 'react';
-class Header extends React.Component {
-  render() {
-    return (
-      <div className='Header'>
-        <h1>lab02 boostrap in react</h1>
-      </div>
-    );
-  }
+
+
+class Header extends React.Component{
+    render() {
+        return(
+            <header>
+                <h1>Horn Beast</h1>
+            </header>
+        )
+    }
 }
 export default Header;
